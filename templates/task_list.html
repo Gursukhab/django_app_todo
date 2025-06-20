@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO List</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} - {{ task.created_at }}</li>
+        {% endfor %}
+    </ul>
+    <form action="/add/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Enter new task" required>
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
